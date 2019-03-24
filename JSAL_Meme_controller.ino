@@ -65,7 +65,7 @@ volatile bool shockFlag = 0;
 
 void setup(){
   Serial.begin(115200);
-  while (!Serial);
+  //while (!Serial);
   Serial.println("Serial Begun!!");
 
   Mouse.begin();
