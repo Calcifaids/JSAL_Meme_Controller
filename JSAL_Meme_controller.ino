@@ -33,7 +33,11 @@
 #include <I2Cdev.h>
 #include <MPU6050.h>
 
-
+//GND
+//+
+//SW brn
+//DT dk prp
+//clk lt prpwwdssewsdee e    e    waaddsssddsswwwwwwwwwwwwwwwwwwwwddddddddweeeeeeeee       
 
 
 //Objects
@@ -54,11 +58,11 @@ uint8_t shockPin = A2;
 uint8_t encoderPinA = 3;
 uint8_t encoderPinB = 8;
 
-char buttonCharacters[5] = {'w', 'a', 's', 'd', 'e'};
+char buttonCharacters[5] = {'w', 'a', 'd', 's', 'e'};
 
 unsigned long timeStamp = 0;
 
-uint8_t numberOfButtons = 5;
+uint8_t numberOfButtons = 5;    
 
 volatile bool shockState = 0;
 volatile bool shockFlag = 0;
@@ -249,11 +253,11 @@ void samplePot(){
   if(potState == 0 && potSample > highSample){
     potState = 1;
     Serial.println("Shift pressed");
-    Keyboard.press(0x2A);
+    Keyboard.press(0x81);
   }
   else if (potState == 1 && potSample < lowSample){
     potState = 0;
     Serial.println("Shift Released");
-    Keyboard.release(0x2A);
+    Keyboard.release(0x81);
   }
 }
